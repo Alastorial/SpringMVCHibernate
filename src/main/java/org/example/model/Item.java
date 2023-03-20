@@ -22,15 +22,14 @@ public class Item {
     @Column(name = "item_name")
     private String itemName;
 
-    @ManyToOne
-    @JoinColumn(name = "person_id", referencedColumnName = "id")
-    private Person owner;
+    @ManyToOne  // дочерняя сущность
+    @JoinColumn(name = "person_id", referencedColumnName = "id")  // колонка внешний ключ (название внеш. ключа в данной таблице, назв. колонки в род. таблице)
+    private Person owner; // хранится не просто id владельца, а весь объект
 
     public Item(){}
 
-    public Item(String itemName, Person owner) {
+    public Item(String itemName) {
         this.itemName = itemName;
-        this.owner = owner;
 
     }
 
